@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #6366F1;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #E5E7EB;
+            --error: #EF4444;
+            --success: #10B981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5;
+            color: var(--dark);
+            padding: 2rem;
+            min-height: 100vh;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        #cart-items {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cart-item {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .cart-item .quantity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .cart-item .price {
+            font-weight: 600;
+            color: var(--primary);
+            min-width: 80px;
+            text-align: right;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 2rem;
+            color: #6B7280;
+        }
+        
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .continue-shopping {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .continue-shopping:hover {
+            color: var(--primary-light);
+            text-decoration: underline;
+        }
+        
+        .continue-shopping svg {
+            width: 1rem;
+            height: 1rem;
+        }
+        
+        .checkout-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .checkout-btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .checkout-btn:active {
+            transform: translateY(0);
+        }
+        
+        .cart-total {
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            color: var(--dark);
+        }
+        
+        @media (max-width: 600px) {
+            .cart-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            
+            .cart-item .price {
+                text-align: left;
+            }
+            
+            .cart-actions {
+                flex-direction: column-reverse;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Shopping Cart</h1>
+        
+        <div id="cart-items">
+            <!-- Example cart item (will be replaced by JavaScript) -->
+            <div class="cart-item">
+                <h3>A.P.J. Abdul Kalam</h3>
+                <div class="quantity">Quantity: 6</div>
+                <div class="price">$100.00</div>
+            </div>
+            
+            <!-- Cart total will be added by JavaScript -->
+            <div class="cart-total">Total: $600.00</div>
+        </div>
+        
+        <div class="cart-actions">
+            <a href="index.html" class="continue-shopping">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Continue Shopping
+            </a>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
